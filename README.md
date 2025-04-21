@@ -1,8 +1,10 @@
-# Smithery Batch Installer
+# Smithery MCP  Batch Installer
 
  ![alt text](image.png)
 
-A simple bash script to expedite installing Smithery MCP servers onto multiple clients simultaneously.
+A simple bash script to expedite installing Smithery MCP servers onto multiple clients simultaneously. Now with two versions:
+- **v1**: Takes a full install command with `--client cursor`
+- **v2**: Takes just a package name (e.g., `@mcpserver/openrouterai`)
 
 ## Overview
 
@@ -77,3 +79,53 @@ Done.
 - The script requires a command that includes `--client cursor`
 - Output from the installation commands is suppressed for cleaner display
 - The script automatically answers "no" to any prompts during installation
+
+## Version 2 (Package-Based Installation)
+
+The v2 script simplifies the process further by only requiring the package name.
+
+### How It Works (v2)
+
+1. The script takes a package name (e.g., `@mcpserver/openrouterai`) as input
+2. It automatically constructs the full installation command
+3. It iterates through a predefined list of clients, installing the package for each one
+4. Each installation is confirmed upon completion
+
+### Usage (v2)
+
+1. Run the v2 script:
+   ```bash
+   ./batch-installer-v2.sh
+   ```
+2. When prompted, paste a package name (e.g., `@mcpserver/openrouterai`)
+3. The script will execute the installation for each client in the list
+4. Press Enter without input to exit the script
+
+### Example (v2)
+
+```
+$ ./batch-installer-v2.sh
+Smithery Install Replicator v2 (package-based)
+Paste a package name (e.g., @mcpserver/openrouterai)
+Press Enter without input to quit.
+
+Package name: @mcpserver/openrouterai
+→ Installing @mcpserver/openrouterai to windsurf...
+✓ Installed for windsurf.
+→ Installing @mcpserver/openrouterai to vscode...
+✓ Installed for vscode.
+→ Installing @mcpserver/openrouterai to roocode...
+✓ Installed for roocode.
+→ Installing @mcpserver/openrouterai to witsy...
+✓ Installed for witsy.
+→ Installing @mcpserver/openrouterai to cursor...
+✓ Installed for cursor.
+✔ Completed installation for all clients.
+
+Package name:
+Done.
+```
+
+### Customizing Target Clients (v2)
+
+Edit the `TARGET_CLIENTS` array in the v2 script to include your desired clients, similar to the v1 script.
