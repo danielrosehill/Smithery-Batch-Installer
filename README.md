@@ -1,0 +1,1 @@
+# Smithery-Batch-Installer
