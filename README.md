@@ -1,6 +1,6 @@
 # Smithery Batch Installer
 
-[text](batch-installer.sh)
+ ![alt text](image.png)
 
 A simple bash script to expedite installing Smithery MCP servers onto multiple clients simultaneously.
 
